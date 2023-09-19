@@ -1,0 +1,18 @@
+#zero_bookings {
+    display: inline-flex;
+    font-family: "Impact", sans-serif;
+    background: url("https://picsum.photos/1920/1080");
+    font-size: 5rem;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #5b728a54;
+    animation: move 30s linear infinite;
+    letter-spacing: .3rem;
+    margin-top: 100px;
+    margin-left: 200px;
+    
+  }
+  @keyframes move {
+    from { background-position: 0 80%; }
+    to { background-position: 100% 50%; }
+  }

@@ -1,0 +1,39 @@
+{% extends 'adminindex.html' %}
+
+{% block body %}
+
+
+<section class="h-100"  " >
+    <div class="container py-5 h-100">
+        <div class="col" style="margin-bottom: 520px;">
+            <table class="table table-bordered" border="1px solid">
+                <thead>
+                    <tr style="text-align: center">
+                        <th scope="col">Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Turf</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in managerdata %}
+                    <tr style="text-align: center">
+                        <td scope="row">{{i.managerfname}} {{i.managerlname}}</td>
+                        <td>{{i.manageraddress}}</td>
+                        <td>{{i.managercities}}</td>
+                        <td>{{i.manageremail}}</td>
+                        <td>{{i.managerphone}}</td>
+                        <td>{{i.assignedturf}}</td>
+                        <td><a href="{% url 'delete_approved_managers' i.id %}"><button class="btn btn-outline-danger">DELETE</button></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

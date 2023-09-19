@@ -1,0 +1,22 @@
+/* page-transition.css */
+.page-enter {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.page-enter-active {
+    opacity: 0;
+    transform: translateY(0);
+}
+
+.page-exit {
+    opacity: 0;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.page-exit-active {
+    opacity: 0;
+    transform: translateY(-50px);
+}

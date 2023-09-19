@@ -1,0 +1,35 @@
+{% extends 'adminindex.html' %}
+
+{% block body %}
+
+<section class="h-100"  " >
+    <div class="container py-5 h-100">
+        <div class="col" style="margin-bottom: 520px;">
+            <table class="table table-bordered" border="1px solid">
+                <thead>
+                    <tr>
+                        <th scope="col">Sl.no</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Emial</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in userfeedback %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.username}}</td>
+                        <td>{{i.useremail}}</td>
+                        <td>{{i.usersubject}}</td>
+                        <td>{{i.usermessage}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'adminindex.html' %}
+
+
+{% block sidebarcontents %}
+
+{% endblock sidebarcontents %}
+
+
+{% block body %}
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3></h3>
+
+                            <a href="{% url 'viewallturfs' %}"><p style="font-weight: bold; color: white;">Total Turfs : {{turf_count}}</p></a>
+                            <!-- <p style="font-weight: bold; color: white; font-weight: 20px;">10</p> -->
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            <h3></h3>
+
+                            <a href="{% url 'alluserfeedback' %}"><p style="font-weight: bold; color: white;">Total feedbacks : {{feedbackcount}}</p></a>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-stats-bars"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-warning">
+                        <div class="inner">
+                            <h3 style="color: white;"></h3>
+
+                            <a href="{% url 'manager_tobe_approved_list' %}"><p style="font-weight: bold; color: white;">Manger Applications : {{manager_application_count}}</p></a>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            <h3></h3>
+
+                            <a href="{% url 'adminallbookings' %}"><p style="font-weight: bold; color: white;">Bookings Requests : {{bookingrequests_count}}</p></a>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-pie-graph"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./col -->
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+        
+
+{% endblock body %}

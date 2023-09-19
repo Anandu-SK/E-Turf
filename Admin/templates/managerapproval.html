@@ -1,0 +1,55 @@
+{% extends 'adminindex.html'  %}
+
+{% load static %}
+
+{% block body %}
+
+    <section class="h-100" style=" background-position: center; background-size: cover; " >
+        <div class="container py-5 h-100">
+            <div class="col" style="margin-bottom: 520px;">
+                
+                    {% include 'messages.html' %}
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>District</th>
+                                    <th>Phonenumber</th>
+                                    <th>Email Address</th>
+                                    <th>Assigned Turf</th>
+                                    <th>Approve</th>
+                                    <th>Reject</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in data %}
+                                <tr>
+                                    <td>{{i.managerfname}} {{i.managerlname}}</td>
+                                    <td>{{i.manageraddress}}</td>
+                                    <td>{{i.managercities}}</td>
+                                    <td>{{i.managerphone}}</td>
+                                    <td>{{i.manageremail}}</td>
+                                    {% for i in data %}
+                                    <form action="{% url 'managerapprove' i.id %}" method="post">
+                                    {% endfor %}
+                                    {% csrf_token %}
+                                        <td><select class="select" name="mLocation">
+                                            {% for i in data1 %}
+                                            <option value="{{i.id}}">{{i.turfaddress}}</option>
+                                            {% endfor %}
+                                        </select></td>
+                                        <td><button type="submit" class="btn btn-outline-success " style="width: 65px; height: 25px; padding: 0;">APPROVE</button></td>
+                                    </form>
+                                    <td><a href="{% url 'managersrejected' i.id %}"><button class="btn btn-outline-danger " style="width: 65px; height: 25px; padding: 0;">REJECT</button></a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </form>
+                
+            </div>
+        </div>
+    </section>
+
+{% endblock body %}

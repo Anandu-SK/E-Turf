@@ -1,0 +1,52 @@
+{% extends 'adminindex.html'  %}
+
+{% load static %}
+
+{% block body %}
+
+    <section class="h-100" style="background-image:url({% static 'dist/img/turf.jpg' %}); background-position: center; background-size: cover; " >
+        <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100" style="padding: 180px; margin-top: -127px;">
+            <div class="col" style="margin-top: 20px;">
+            <div class="card card-registration my-4" style="background-color: rgba(0, 0, 0, 0.5);">
+                <div class="row g-0">
+               
+                <div class="col-xl-12" >
+                    <div class="card-body p-md-5 text-white">
+                    <h3 class="mb-5 text-uppercase">Turf Category Registration</h3>
+                    
+                    <form action="{% url 'turfcategory' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                            <div class="row">
+                                <div class="col-md-12 mb-4">
+                                <div class="form-outline">
+                                    {% include 'messages.html' %}
+                                    <input type="text" required name="tCategory" id="form3Example1m" class="form-control form-control-lg" style="background-color: rgba(0,0,0,0.5); color: white;"/>
+                                    <label class="form-label" for="form3Example1m">Category</label>
+                                </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-outline mb-4">
+                                <input type="text" required name="tCprice" class="form-control form-control-lg" style="background-color: rgba(0,0,0,0.5); color: white;"/>
+                                <label class="form-label">Price</label>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <button type="submit" id="form3Example97" class="form-control form-control-lg btn btn-outline border" style="background-color: rgba(0,0,0,0.5); color: white; width: 120px;">Submit</button>
+                            </div>
+
+                    </form>
+    
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+{% endblock body %}

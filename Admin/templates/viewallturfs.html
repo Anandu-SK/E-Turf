@@ -1,0 +1,64 @@
+{% extends 'adminindex.html'  %}
+
+{% load static %}
+
+{% block body %}
+
+    <section class="h-100"  " >
+        <div class="container py-5 h-100">
+            <div class="col" style="margin-bottom: 520px;">
+                <table class="table table-bordered" border="1px solid">
+                    <thead>
+                        <tr style="text-align: center">
+                            <th scope="col">District</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">EDIT</th>
+                            <th scope="col">DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in data %}
+                        <tr style="text-align: center">
+                            <td scope="row">{{i.turflocation}}</td>
+                            <td>{{i.tname}}</td>
+                            <td>{{i.turfaddress}}</td>
+                            <td>{{i.placeprice}}</td>
+                            <td><img src="{{i.turfimage.url}}" width="150px" height="150px"></td>
+                            <td><a href="{% url 'viewindividual_turf_details' i.id %}"><button>EDIT</button></a></td>
+                            <td><a href="{% url 'deleteturflocation' i.id %}"><button>DELETE</button></a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                
+                <br>
+
+                <table class="table table-bordered" border="1px solid">
+                    <thead>
+                        <tr style="text-align: center">
+                            <th scope="col">Category</th>
+                            <th scope="col">Category Price</th>
+                            <th scope="col">EDIT</th>
+                            <th scope="col">DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in data1 %}
+                        <tr style="text-align: center">
+                            <td>{{i.category}}</td>
+                            <td>{{i.categoryprice}}</td>
+                            <td><a href="{% url 'individual_turfcategory_view' i.id %}"><button>EDIT</button></a></td>
+                            <td><a href="{% url 'turfcategorydelete' i.id %}"><button>DELETE</button></a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+{% endblock body %}

@@ -1,0 +1,69 @@
+{% extends 'managerindex.html' %}
+{% load static %}
+
+{% block sidebar %}
+
+{% endblock %}
+
+{% block body %}
+
+<header style="font-weight: bolder; font-size: 22px;">BOOKINGS</header>
+<br>
+<div class="col-lg-12" >
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Bookings</h5>
+        <div class="table-responsive" style="overflow-y: scroll; max-height: 500px;;">
+        <table class="table table-bordered">
+          <thead>
+            <tr style="text-align: center;">
+              <th>Sl.no</th>
+              <th scope="col">Name</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col">Category</th>
+              <th scope="col">Price</th>
+              <th scope="col">Payment Status</th>
+              <th scope="col">Date Booked</th>
+              <th scope="col">Time Booked</th>
+              <th>STATUS</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in bookinghistory %}
+            <tr style="text-align: center;">
+              <th>{{forloop.counter}}</th>
+              <td>{{i.ubookingname}}</td>
+              <td>{{i.ubookingphone}}</td>
+              <td>{{i.ubookingcategory}}</td>
+              <td>{{i.ubookingprice}}</td>
+              {% if i.upaymentstatus == 'paid' %}
+              <td>Paid</td>
+              {% else %}
+              <td>Unpaid</td>
+              {% endif %}
+              <td>{{i.ubookingdate}}</td>
+              <td>{{i.ubookingtime}}</td>
+              {% if i.ubookingstatus == "0" %}
+              <td>PENDING</td>
+              {% elif i.ubookingstatus == "1" %}
+              <td>APPROVED</td>
+              {% else %}
+              <td>REJECTED</td>
+              {% endif %}
+              {% if i.ubookingstatus == "1" %}
+              <td><a href="{% url 'bill_generation' i.id %}" title="Generate Bill"><button class="btn btn-outline-primary"><i class="fa-regular fa-file-lines fa-xl"></i></button></a></td>
+              {% else %}
+              <td></td>
+              {% endif %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+  </div>
+</div><!--End Row-->
+
+{% endblock %}
